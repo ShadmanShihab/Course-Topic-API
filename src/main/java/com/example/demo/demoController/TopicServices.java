@@ -27,28 +27,29 @@ public class TopicServices {
 
     //find by id
     public Optional<Topic> getTopic(String id){
-        //return topics.stream().filter(t -> t.getId().equals(id)).collect(Collectors.toList());
-         return repositoryLayer.findById(id);
+        return repositoryLayer.findById(id);
     }
 
     //create
     public void addTopic(Topic topic) {
         repositoryLayer.save(topic);
-        topics.add(topic);
     }
 
 
+    //update topic
     public void updateTopic(String id, Topic topic){
         for(int i=0; i<topics.size(); i++){
             Topic t = topics.get(i);
 
             if(t.getId().equals(id)){
-                topics.set(i, topic);
+                repositoryLayer.save(topic);
+                //topics.set(i, topic);
                 break;
             }
         }
     }
 
+    //Delete
     public void deleteTopic(String id) {
         for(int i=0; i<topics.size(); i++){
             Topic t = topics.get(i);
