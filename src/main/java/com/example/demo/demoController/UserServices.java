@@ -1,6 +1,8 @@
 package com.example.demo.demoController;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -8,13 +10,15 @@ import java.util.List;
 
 @Service
 public class UserServices {
-    public List<User> Users = Arrays.asList(
-            new User(1, "The Java Spring Boot Course"),
-            new User(2, "The complete Javascript Course"),
-            new User(3, "Python for data science")
-    );
+    @Autowired
+    UserRepositoryLayer userRepositoryLayer;
 
-    public List<User> getUsers(){
-        return Users;
+
+    public List<User> getUsers() {
+        return userRepositoryLayer.findAll();
+    }
+
+    public void addUser(User user) {
+        userRepositoryLayer.save(user);
     }
 }

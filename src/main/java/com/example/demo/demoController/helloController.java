@@ -11,24 +11,24 @@ public class helloController {
 
     @Autowired
     public TopicServices topicServices;
-
-    @Autowired
-    public UserServices userServices;
+//
+//    @Autowired
+//    public UserServices userServices;
 
     @RequestMapping("/")
     public String home(){
         return "Welcome to the landing page ";
     }
 
-    @RequestMapping("/users")
-    public List<User> allUsers(){
-        return userServices.getUsers();
-    }
-
-    @RequestMapping("/users/login")
-    public String login(){
-        return "<h1> Welcome to the login page </h1>";
-    }
+//    @RequestMapping("/users")
+//    public List<User> allUsers(){
+//        return userServices.getUsers();
+//    }
+//
+//    @RequestMapping("/users/login")
+//    public String login(){
+//        return "<h1> Welcome to the login page </h1>";
+//    }
 
     //find all
     @RequestMapping("/topics")
@@ -60,7 +60,7 @@ public class helloController {
 
 
 
-    //Delete - Mking a delete request
+    //Delete - Making a delete request
     @RequestMapping(method = RequestMethod.DELETE, value = "/topics/{id}")
     public String deleteTopic(@PathVariable String id){
         topicServices.deleteTopic(id);
