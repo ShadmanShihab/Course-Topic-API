@@ -64,7 +64,7 @@ public class helloController {
     @RequestMapping(method = RequestMethod.DELETE, value = "/topics/{id}")
     public String deleteTopic(@PathVariable String id){
         topicServices.deleteTopic(id);
-        String str = id + "is deleted";
+        String str = id + " is deleted";
         return str;
     }
 

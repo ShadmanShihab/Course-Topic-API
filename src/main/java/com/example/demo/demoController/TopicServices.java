@@ -55,7 +55,8 @@ public class TopicServices {
             Topic t = topics.get(i);
 
             if(t.getId().equals(id)){
-                topics.remove(i);
+                //topics.remove(i);
+                repositoryLayer.deleteById(id);
                 break;
             }
         }
